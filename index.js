@@ -1,19 +1,9 @@
-//
-
-const unmodifiedTestArr = [1, 2, 3, 4]
-const unmodifiedTestObj = {one: 1, two: 2, three: 3, four: 4}
-// const testArr = [1, 2, 3, 4]
-const testArr = unmodifiedTestArr.slice()
-
-
 const myEach = function(collection, callback) {
     for(const item of Object.values(collection)) {
       callback(item)
     }
     return collection
 }
-
-// console.log(myEach(unmodifiedTestObj, alert))
 
 const myMap = function (collection, callback) {
   let newCollection = []
@@ -22,25 +12,6 @@ const myMap = function (collection, callback) {
   }
   return newCollection
 }
-
-//
-// const myReduce = function(collection, callback, acc) {
-//   let singleValue = 0
-
-//   for (const item of Object.values(collection)) {
-//     singleValue = callback(item)
-//   }
-
-//   return singleValue
-// }
-
-// const callback = (acc, val, collection) => (acc + (val * 3))
-
-// console.log(myReduce(testArr, callback, 10))
-
-
-const callback = (acc, val, collection) => (acc + (val * 3))
-
 
 const myReduce = function(collection, callback, acc) {
   let singleValue
@@ -63,16 +34,6 @@ const myReduce = function(collection, callback, acc) {
   return singleValue
 }
 
-console.log(myReduce(testArr, callback))
-
-//
-
-const intArr = [-1, 4, 0, 1, 3, 2, 3, 4, 5, 6]
-
-function findCBGenerator(target) {
-  return (function(currEl) { return target === currEl })
-}
-
 const myFind = function(collection, predicate) {
   for( const item of Object.values(collection)) {
     if (predicate(item)) {
@@ -80,9 +41,6 @@ const myFind = function(collection, predicate) {
     }
   }
 }
-
-// console.log(myFind(intArr, findCBGenerator(8)))
-
 
 const myFilter = function(collection, predicate) {
   let newCollection = []
@@ -101,34 +59,21 @@ const mySize = function(collection) {
   return numOfItems
 }
 
-// console.log(mySize(intArr))
-
-// const myFirst = function(array, n = 1) {
-//   return array.slice(0, n)
-// }
-
-function myFirst(array, n) {
+const myFirst = function(array, n) {
   if (n === undefined) {
       return array[0]
   } else {
-      return array.slice(0, n);
+      return array.slice(0, n)
   }
 }
 
-// console.log(myFirst(testArr))
-// console.log(myFirst(testArr, 3))
-
-
-function myLast(array, n) {
+const myLast = function(array, n) {
   if (n === undefined) {
       return  array[array.length - 1]
   } else {
       return array.slice(-n)
   }
 }
-
-// console.log(myLast(testArr))
-// console.log(myLast(testArr, 3))
 
 const myKeys = function(object) {
   let keys = []
@@ -145,5 +90,3 @@ const myValues = function(object) {
   }
   return values
 }
-
-// console.log(myValues(unmodifiedTestObj))
